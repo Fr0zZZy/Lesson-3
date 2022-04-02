@@ -19,23 +19,14 @@ window.onload = function () {
         win[i].length = n;
     }
 
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < win[i].length; j++) {
-            win[i][j] = j + n * i;
+   for (i = 0; i < n; i++) { // Цикл на генерацию выигрышных клеток
+            for (j = 0; j < win[i].length; j++) {
+                win[i][j] = j + n * i; // Горизонтальная линия
+                win[i + n][j] = i + n * j; // Вертикальная линия
+                win[n + n][i] = i * n + i; // Первая диагональ
+                win[win.length - 1][i] = (n - 1) * (i + 1); // Вторая диагональ
+            }
         }
-    }
-
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < win[i].length; j++) {
-            win[i + n][j] = i + n * j;
-        }
-    }
-    for (i = 0; i < n; i++) {
-        win[n + n][i] = i * n + i;
-    }
-    for (i = 0; i < n; i++) {
-        win[win.length - 1][i] = (n - 1) * (i + 1);
-    }
 }
 
 class TicTacToe {
